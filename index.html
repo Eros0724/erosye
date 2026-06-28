@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="HSBC Technology China COO · DBA Researcher · FinTech East-Meets-West — 汇丰科技中国COO的个人品牌网站，连接东西方金融科技">
+<meta name="keywords" content="FinTech, HSBC, COO, AI Leadership, Team Building, 金融科技, 东西方管理, DBA">
+<meta property="og:title" content="Eros Ye — FinTech Leader · COO · Researcher">
+<meta property="og:description" content="Bridging East and West in FinTech, AI, and Leadership">
+<meta property="og:type" content="website">
+<title>Eros Ye — FinTech Leader · COO · Researcher</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- 导航栏 -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="/" class="nav-logo">Eros Ye<span class="dot">.</span></a>
+      <div class="nav-links" id="navLinks">
+        <a href="/" class="nav-link active">Home</a>
+        <a href="/about.html" class="nav-link">About</a>
+        <a href="/blog.html" class="nav-link">Blog</a>
+        <a href="/research.html" class="nav-link">Research</a>
+        <a href="/speaking.html" class="nav-link">Speaking</a>
+        <a href="/contact.html" class="nav-link">Contact</a>
+      </div>
+      <div class="nav-actions">
+        <button class="lang-toggle" onclick="toggleLang()" id="langToggle">中</button>
+        <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 英雄区域 -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <div class="hero-badge">HSBC Technology China · Operations Director</div>
+      <h1 class="hero-title">
+        <span class="hero-line">Bridging East & West</span>
+        <span class="hero-line accent">in FinTech Leadership</span>
+      </h1>
+      <p class="hero-subtitle">
+        Operations Director · DBA Researcher · AI & Future of Teams<br>
+        叶明希 — 汇丰科技中国运营总监，连接东西方的金融科技思考
+      </p>
+      <div class="hero-cta">
+        <a href="/blog.html" class="btn btn-primary">Read My Insights</a>
+        <a href="/about.html" class="btn btn-outline">About Me</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat">
+          <div class="stat-number">20+</div>
+          <div class="stat-label">Years in FinTech</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">18,000+</div>
+          <div class="stat-label">Engineers Across 4 Cities</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">30+</div>
+          <div class="stat-label">Patents Annually</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">$30M</div>
+          <div class="stat-label">Cost Savings Delivered</div>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-indicator">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- 内容支柱 -->
+  <section class="pillars section">
+    <div class="container">
+      <h2 class="section-title">What I Write About <span class="accent">/</span> 内容支柱</h2>
+      <div class="pillars-grid">
+        <div class="pillar-card" data-aos="fade-up">
+          <div class="pillar-icon">💼</div>
+          <h3>实战复盘</h3>
+          <p class="en">Real-World FinTech Operations</p>
+          <p>汇丰科技一线的跨国协作、合规实战、安全运维经验</p>
+          <div class="pillar-tag">35% of content</div>
+        </div>
+        <div class="pillar-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="pillar-icon">🔬</div>
+          <h3>学术洞察</h3>
+          <p class="en">AI × Team Building Research</p>
+          <p>DBA研究框架，AI如何重新定义团队与领导力</p>
+          <div class="pillar-tag">25% of content</div>
+        </div>
+        <div class="pillar-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="pillar-icon">🌏</div>
+          <h3>东西对话</h3>
+          <p class="en">East-West Cultural Bridge</p>
+          <p>硅谷vs深圳，中西管理文化碰撞与融合的深度观察</p>
+          <div class="pillar-tag">25% of content</div>
+        </div>
+        <div class="pillar-card" data-aos="fade-up" data-aos-delay="300">
+          <div class="pillar-icon">🎤</div>
+          <h3>观点立场</h3>
+          <p class="en">Bold Perspectives</p>
+          <p>对金融科技行业热点的独立判断，不随大流</p>
+          <div class="pillar-tag">15% of content</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 最新文章 -->
+  <section class="latest-posts section bg-alt">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Latest Insights <span class="accent">/</span> 最新文章</h2>
+        <a href="/blog.html" class="btn btn-text">View All →</a>
+      </div>
+      <div class="posts-grid" id="latestPosts">
+        <!-- JS 动态加载 -->
+      </div>
+    </div>
+  </section>
+
+  <!-- 关于我简介 -->
+  <section class="about-brief section">
+    <div class="container">
+      <div class="about-brief-grid">
+        <div class="about-brief-text">
+          <div class="section-label">About / 关于</div>
+          <h2 class="section-title">The Person Behind the Title</h2>
+          <p>I'm the Operations Director of HSBC Technology China, overseeing a technology center with <strong>18,000+ engineers across 4 cities</strong> — the largest in HSBC's global network. Beyond operations, I'm a DBA researcher at City University exploring how AI reshapes team dynamics and leadership.</p>
+          <p>With over <strong>20 years in international banking technology</strong>, I've led cloud-native transformations, pioneered the industry's first financial-grade cloud implementation with Alibaba Cloud, built an Xi'an center from 0 to 2,000 engineers, and cultivated an innovation culture generating <strong>30+ patents annually</strong>.</p>
+          <p>This platform is my way of bridging two worlds — sharing insights from China's FinTech frontline with a global audience, and bringing global perspectives back home.</p>
+          <a href="/about.html" class="btn btn-primary">Full Story</a>
+        </div>
+        <div class="about-brief-visual">
+          <div class="visual-card">
+            <div class="visual-item">
+              <div class="visual-label">Role</div>
+              <div class="visual-value">Operations Director, HSBC Technology China</div>
+            </div>
+            <div class="visual-item">
+              <div class="visual-label">Scale</div>
+              <div class="visual-value">18,000+ Engineers · 4 Cities</div>
+            </div>
+            <div class="visual-item">
+              <div class="visual-label">Research</div>
+              <div class="visual-value">DBA · AI & Team Building · CityU</div>
+            </div>
+            <div class="visual-item">
+              <div class="visual-label">Innovation</div>
+              <div class="visual-value">30+ Patents/Year · $30M Cost Savings</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 订阅区域 -->
+  <section class="newsletter section bg-dark">
+    <div class="container">
+      <div class="newsletter-content">
+        <h2>Stay Connected / 保持连接</h2>
+        <p>每周一篇深度洞察，从中国金融科技前沿到全球视野。不打扰，只启发。</p>
+        <form class="newsletter-form" id="newsletterForm" onsubmit="subscribeNewsletter(event)">
+          <input type="email" placeholder="your@email.com" required>
+          <button type="submit" class="btn btn-primary">Subscribe</button>
+        </form>
+        <div class="newsletter-platforms">
+          <span>Also on:</span>
+          <a href="#" class="platform-link">微信公众号</a>
+          <a href="#" class="platform-link">LinkedIn</a>
+          <a href="#" class="platform-link">Medium</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 页脚 -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo">Eros Ye<span class="dot">.</span></div>
+          <p>叶明希 — Operations Director, HSBC Technology China · Bridging East & West in FinTech</p>
+        </div>
+        <div class="footer-links">
+          <h4>Navigate</h4>
+          <a href="/">Home</a>
+          <a href="/about.html">About</a>
+          <a href="/blog.html">Blog</a>
+          <a href="/research.html">Research</a>
+          <a href="/speaking.html">Speaking</a>
+        </div>
+        <div class="footer-links">
+          <h4>Connect</h4>
+          <a href="#">LinkedIn</a>
+          <a href="#">微信公众号</a>
+          <a href="#">Medium</a>
+          <a href="#">Twitter/X</a>
+        </div>
+        <div class="footer-links">
+          <h4>Content</h4>
+          <a href="/blog.html?pillar=practice">实战复盘</a>
+          <a href="/blog.html?pillar=academic">学术洞察</a>
+          <a href="/blog.html?pillar=eastwest">东西对话</a>
+          <a href="/blog.html?pillar=opinion">观点立场</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Eros Ye. All rights reserved. Built with purpose.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/data.js"></script>
+</body>
+</html>
