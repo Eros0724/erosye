@@ -238,9 +238,9 @@
     研究 AI 与团队，思考东西方的交汇。
   </p>
   <nav>
-    <a href="/erosye/" class="active">Writing</a>
-    <a href="/erosye/about">About</a>
-    <a href="/erosye/contact">Contact</a>
+    <a href="#/" class="active" onclick="return navClick('#/')">Writing</a>
+    <a href="#/about" onclick="return navClick('#/about')">About</a>
+    <a href="#/contact" onclick="return navClick('#/contact')">Contact</a>
   </nav>
 </header>
 
@@ -253,11 +253,10 @@
 </footer>
 
 <script>
-// ============ 路由 ============
-const SITE_BASE = '/erosye';
-
+// ============ 路由 (Hash-based, 无404) ============
 function route() {
-  const path = window.location.pathname.replace(SITE_BASE, '') || '/';
+  const hash = window.location.hash || '#/';
+  const path = hash.replace('#', '') || '/';
   const main = document.getElementById('content');
 
   if (path === '/' || path === '') {
@@ -273,17 +272,19 @@ function route() {
     main.innerHTML = '<p style="color:var(--text-muted);padding:40px 0;">404 — Page not found.</p>';
   }
 
-  // 导航高亮
   document.querySelectorAll('nav a').forEach(a => {
-    const href = a.getAttribute('href').replace(SITE_BASE, '');
-    a.classList.toggle('active', href === path || (path === '/' && href === '/'));
+    a.classList.toggle('active', a.getAttribute('href') === window.location.hash);
   });
+}
+
+function navClick(hash) {
+  window.location.hash = hash;
+  return false;
 }
 
 // ============ 文章数据 ============
 const POSTS = [
   {
-    {
     id: 'ai-entering-teams',
     title: 'AI 正在走进团队，但我们真的准备好了吗？',
     date: '2025-07-16',
@@ -351,7 +352,7 @@ function renderPostList() {
   return POSTS.map(p => `
     <div class="post-item">
       <div class="post-date">${p.date}</div>
-      <a class="post-title" href="${SITE_BASE}/post/${p.id}" onclick="navigate(event,'/post/${p.id}')">${p.title}</a>
+      <a class="post-title" href="#/post/${p.id}" onclick="return navClick('#/post/${p.id}')">${p.title}</a>
       <p class="post-excerpt">${p.excerpt}</p>
       <div class="post-tags">${p.tags.map(t=>`<span>${t}</span>`).join('')}</div>
     </div>
@@ -367,7 +368,7 @@ function renderPost(id) {
   return `
     <article class="article">
       <p style="font-size:12px;color:var(--text-muted);margin-bottom:4px;">
-        <a href="${SITE_BASE}/" onclick="navigate(event,'/')" style="color:var(--text-muted);text-decoration:none;">← Writing</a>
+        <a href="#/" onclick="return navClick('#/')" style="color:var(--text-muted);text-decoration:none;">← Writing</a>
       </p>
       <h1>${p.title}</h1>
       <div class="meta">${p.date} · ${p.tags.join(' · ')}</div>
@@ -425,11 +426,12 @@ function renderContact() {
 
 function navigate(e, path) {
   e.preventDefault();
-  history.pushState(null, '', SITE_BASE + path);
+  window.location.hash = '#/post/' + path.split('/post/')[1];
   route();
 }
 
-window.addEventListener('popstate', route);
+window.addEventListener('hashchange', route);
+window.addEventListener('DOMContentLoaded', route);
 route();
 </script>
 </body>
