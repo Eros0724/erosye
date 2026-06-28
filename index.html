@@ -3,223 +3,454 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="HSBC Technology China COO · DBA Researcher · FinTech East-Meets-West — 汇丰科技中国COO的个人品牌网站，连接东西方金融科技">
-<meta name="keywords" content="FinTech, HSBC, COO, AI Leadership, Team Building, 金融科技, 东西方管理, DBA">
-<meta property="og:title" content="Eros Ye — FinTech Leader · COO · Researcher">
-<meta property="og:description" content="Bridging East and West in FinTech, AI, and Leadership">
-<meta property="og:type" content="website">
-<title>Eros Ye — FinTech Leader · COO · Researcher</title>
-<link rel="stylesheet" href="css/style.css">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
+<meta name="description" content="Eros Ye 叶明希 — Thinking about AI, teams, and the space between East and West.">
+<title>Eros Ye</title>
+<style>
+  :root {
+    --bg: #fafaf8;
+    --text: #1a1a1a;
+    --text-secondary: #555;
+    --text-muted: #999;
+    --border: #e5e5e0;
+    --code-bg: #f3f3f0;
+    --link: #1a1a1a;
+    --link-hover: #555;
+    --accent: #d4a853;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #111110;
+      --text: #e0e0dc;
+      --text-secondary: #999;
+      --text-muted: #666;
+      --border: #2a2a28;
+      --code-bg: #1a1a18;
+      --link: #e0e0dc;
+      --link-hover: #aaa;
+    }
+  }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  body {
+    font-family: 'SF Mono', 'Fira Code', 'JetBrains Mono', 'Courier New', 'Noto Sans SC', monospace;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.8;
+    font-size: 15px;
+    -webkit-font-smoothing: antialiased;
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 0 20px 80px;
+  }
+
+  /* === 顶部 === */
+  .site-header {
+    padding: 60px 0 40px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 40px;
+  }
+  .site-header h1 {
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: -0.3px;
+    margin-bottom: 8px;
+  }
+  .site-header h1 span { color: var(--accent); }
+  .site-header .tagline {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.7;
+  }
+  .site-header nav {
+    margin-top: 20px;
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  .site-header nav a {
+    font-size: 13px;
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .site-header nav a:hover, .site-header nav a.active { color: var(--text); }
+
+  /* === 文章列表 === */
+  .post-item {
+    padding: 24px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .post-item .post-date {
+    font-size: 11px;
+    color: var(--text-muted);
+    margin-bottom: 6px;
+    letter-spacing: 0.5px;
+  }
+  .post-item .post-title {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--text);
+    text-decoration: none;
+    margin-bottom: 6px;
+    display: block;
+    line-height: 1.5;
+  }
+  .post-item .post-title:hover { color: var(--link-hover); }
+  .post-item .post-excerpt {
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+  .post-item .post-tags {
+    margin-top: 8px;
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .post-item .post-tags span {
+    font-size: 10px;
+    color: var(--text-muted);
+    background: var(--code-bg);
+    padding: 2px 8px;
+    border-radius: 3px;
+  }
+
+  /* === 文章详情页 === */
+  .article { padding: 20px 0; }
+  .article h1 {
+    font-size: 22px; font-weight: 500; margin: 0 0 8px 0;
+    line-height: 1.4;
+  }
+  .article .meta { font-size: 12px; color: var(--text-muted); margin-bottom: 32px; }
+  .article .body { font-size: 15px; color: var(--text-secondary); line-height: 2; }
+  .article .body p { margin-bottom: 20px; }
+  .article .body h2 {
+    font-size: 17px; font-weight: 500; color: var(--text);
+    margin: 36px 0 12px;
+  }
+  .article .body h3 {
+    font-size: 15px; font-weight: 500; color: var(--text);
+    margin: 24px 0 8px;
+  }
+  .article .body blockquote {
+    border-left: 2px solid var(--accent);
+    padding: 4px 0 4px 16px;
+    margin: 20px 0;
+    color: var(--text-secondary);
+    font-style: italic;
+  }
+  .article .body ul, .article .body ol {
+    padding-left: 20px;
+    margin-bottom: 20px;
+  }
+  .article .body li { margin-bottom: 6px; }
+  .article .body code {
+    background: var(--code-bg);
+    padding: 1px 6px;
+    border-radius: 3px;
+    font-size: 13px;
+  }
+  .article .body pre {
+    background: var(--code-bg);
+    padding: 16px;
+    border-radius: 6px;
+    overflow-x: auto;
+    font-size: 13px;
+    margin-bottom: 20px;
+    line-height: 1.6;
+  }
+  .article .body strong { color: var(--text); font-weight: 600; }
+
+  /* === 关于页 === */
+  .about-section { margin-bottom: 40px; }
+  .about-section h2 {
+    font-size: 16px; font-weight: 500; margin-bottom: 16px;
+    color: var(--text);
+  }
+  .about-section p {
+    font-size: 14px; color: var(--text-secondary);
+    line-height: 1.9; margin-bottom: 12px;
+  }
+  .about-section ul { padding-left: 16px; margin-bottom: 12px; }
+  .about-section li { font-size: 14px; color: var(--text-secondary); margin-bottom: 6px; }
+
+  .timeline-item {
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    gap: 16px;
+  }
+  .timeline-item .year {
+    font-size: 11px; color: var(--text-muted);
+    min-width: 80px; padding-top: 2px;
+  }
+  .timeline-item .desc { font-size: 13px; color: var(--text-secondary); }
+  .timeline-item .desc strong { color: var(--text); font-weight: 500; }
+
+  /* === 联系页 === */
+  .contact-link {
+    display: block;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border);
+    color: var(--text);
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.2s;
+  }
+  .contact-link:hover { color: var(--accent); }
+  .contact-link span { color: var(--text-muted); font-size: 12px; }
+
+  /* === 页脚 === */
+  .site-footer {
+    margin-top: 60px;
+    padding: 24px 0;
+    border-top: 1px solid var(--border);
+    font-size: 11px;
+    color: var(--text-muted);
+  }
+
+  /* === 响应式 === */
+  @media (max-width: 480px) {
+    body { font-size: 14px; padding: 0 16px 60px; }
+    .site-header { padding: 40px 0 28px; }
+    .site-header h1 { font-size: 16px; }
+    .article h1 { font-size: 19px; }
+    .article .body { font-size: 14px; }
+  }
+
+  /* === 暗色模式切换 === */
+  .theme-toggle {
+    background: none; border: 1px solid var(--border);
+    color: var(--text-muted); cursor: pointer;
+    padding: 4px 10px; font-size: 11px;
+    border-radius: 4px; font-family: inherit;
+  }
+</style>
 </head>
 <body>
-  <!-- 导航栏 -->
-  <nav class="navbar" id="navbar">
-    <div class="nav-container">
-      <a href="/" class="nav-logo">Eros Ye<span class="dot">.</span></a>
-      <div class="nav-links" id="navLinks">
-        <a href="/" class="nav-link active">Home</a>
-        <a href="/about.html" class="nav-link">About</a>
-        <a href="/blog.html" class="nav-link">Blog</a>
-        <a href="/research.html" class="nav-link">Research</a>
-        <a href="/speaking.html" class="nav-link">Speaking</a>
-        <a href="/contact.html" class="nav-link">Contact</a>
-      </div>
-      <div class="nav-actions">
-        <button class="lang-toggle" onclick="toggleLang()" id="langToggle">中</button>
-        <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
-      </div>
-    </div>
+
+<header class="site-header">
+  <h1>Eros Ye <span>叶明希</span></h1>
+  <p class="tagline">
+    Thinking about AI, teams, and the space between East and West.<br>
+    研究 AI 与团队，思考东西方的交汇。
+  </p>
+  <nav>
+    <a href="/erosye/" class="active">Writing</a>
+    <a href="/erosye/about">About</a>
+    <a href="/erosye/contact">Contact</a>
   </nav>
+</header>
 
-  <!-- 英雄区域 -->
-  <section class="hero">
-    <div class="hero-bg"></div>
-    <div class="hero-content">
-      <div class="hero-badge">HSBC Technology China · Operations Director</div>
-      <h1 class="hero-title">
-        <span class="hero-line">Bridging East & West</span>
-        <span class="hero-line accent">in FinTech Leadership</span>
-      </h1>
-      <p class="hero-subtitle">
-        Operations Director · DBA Researcher · AI & Future of Teams<br>
-        叶明希 — 汇丰科技中国运营总监，连接东西方的金融科技思考
+<main id="content">
+  <!-- JS 动态渲染 -->
+</main>
+
+<footer class="site-footer">
+  &copy; 2025 Eros Ye · Built with plain text and curiosity.
+</footer>
+
+<script>
+// ============ 路由 ============
+const SITE_BASE = '/erosye';
+
+function route() {
+  const path = window.location.pathname.replace(SITE_BASE, '') || '/';
+  const main = document.getElementById('content');
+
+  if (path === '/' || path === '') {
+    main.innerHTML = renderPostList();
+  } else if (path === '/about') {
+    main.innerHTML = renderAbout();
+  } else if (path === '/contact') {
+    main.innerHTML = renderContact();
+  } else if (path.startsWith('/post/')) {
+    const id = path.split('/post/')[1];
+    main.innerHTML = renderPost(id);
+  } else {
+    main.innerHTML = '<p style="color:var(--text-muted);padding:40px 0;">404 — Page not found.</p>';
+  }
+
+  // 导航高亮
+  document.querySelectorAll('nav a').forEach(a => {
+    const href = a.getAttribute('href').replace(SITE_BASE, '');
+    a.classList.toggle('active', href === path || (path === '/' && href === '/'));
+  });
+}
+
+// ============ 文章数据 ============
+const POSTS = [
+  {
+    id: 'ai-teams-kpmg',
+    title: '当 AI 成为团队成员：KPMG 没说透的那件事',
+    date: '2025-08-13',
+    excerpt: 'KPMG 的报告说要把 AI 当员工管理。但真正的问题不是「怎么管 AI」，而是「当 AI 坐在团队里，人和人的协作方式会发生什么改变」。基于真实企业数据的研究，提出 AI 团队协作的三层模型。',
+    tags: ['AI', '团队', '管理', '研究'],
+    body: `
+<p>上个月的一个周三下午，我在西安研发中心旁听了一个项目回顾会。</p>
+
+<p>团队刚刚完成一个核心模块的交付。项目经理在复盘时提了一句：「这次我们比计划提前了两周。」我问原因，技术负责人想了想说：「Copilot 帮了很大的忙。但不是你想的那种——不是每个人写得快了。是那几个经验最丰富的工程师，用 AI 的方式和我们预期的不太一样。」</p>
+
+<p>这句话让我想了很久。</p>
+
+<p>正好最近 KPMG 发了一份报告，讨论 AI Agent 应该如何被视为「数字员工」纳入组织架构。报告里有很多值得思考的框架。但读完以后，我总觉得少了点什么——少了那个技术负责人在会议室里说的那种东西：<strong>真正发生在团队里的、微妙的、不那么整齐的变化。</strong></p>
+
+<h2>摩根士丹利的一个细节</h2>
+
+<p>先讲一个案例。</p>
+
+<p>2024 年，摩根士丹利给财务顾问团队部署了一个 AI 工具，可以在客户通话后自动生成会议纪要，提取行动事项，同步到 CRM 系统。</p>
+
+<p>听起来不复杂。但有个数字让我印象深刻：<strong>98% 的顾问自愿采用了这个工具。</strong></p>
+
+<p>做过企业软件部署的人都知道，98% 的自愿采用率意味着什么——大部分企业内部工具的采用率能超过 60% 就算成功了。摩根士丹利的顾问们不是被要求用的，他们是<strong>自己选择用</strong>的。</p>
+
+<p>为什么？因为 AI 帮他们省掉了最无聊的那部分工作——花 20 分钟回忆通话内容、整理笔记、录入系统。而顾问们可以把精力放在真正有价值的事情上：理解客户需求、思考投资策略、维护信任关系。</p>
+
+<h2>资深者的秘密</h2>
+
+<p>在我们的数据里，资深开发者在 Copilot 上的生产力提升，明显大于初级开发者。</p>
+
+<p>一开始我觉得这个结果有点反直觉——难道不是新人更需要 AI 帮忙吗？</p>
+
+<p>后来我和几位资深工程师聊了聊，发现了一个有趣的模式。一个在汇丰工作了 12 年的工程师告诉我：「我用 Copilot 不是让它替我写代码。我是让它帮我处理那些我已经知道怎么写、但写起来很花时间的部分。这样我就能把精力花在那些真正需要判断力的地方——架构该怎么设计，边界条件该怎么处理。」</p>
+
+<p>而初级开发者的情况不同。他们往往让 Copilot 直接生成大段代码，然后花更多时间去理解和调试。AI 确实帮了他们，但帮的方式不一样。</p>
+
+<p>这让我想起经济学里的「技术-技能互补」理论：新技术往往不是替代高技能劳动者，而是和他们的能力形成互补，放大他们已经具备的优势。</p>
+
+<h2>溢出效应：为什么小团队更受益</h2>
+
+<p>在我们的研究里，有一个发现让我特别兴奋。</p>
+
+<p>我们发现，初级开发者在有<strong>活跃使用 AI 的资深同事</strong>的团队中，生产力提升更大。而且这个效果在<strong>小团队</strong>（少于 5 个 AI 用户）中更强。</p>
+
+<p>换句话说，资深者使用 AI 的方式，会「溢出」到整个团队。</p>
+
+<p>为什么是小团队？我和几个团队负责人讨论后，有了一个猜测：在小团队里，资深者的工作习惯更容易被观察到。新人能看到他是怎么写 prompt 的，怎么验证 AI 输出的，什么时候采纳建议、什么时候推翻重来。这些微妙的实践，在 10 人以上的大团队里会被稀释。</p>
+
+<p>Salesforce 的法务团队也有类似的经验。他们的 AI 合同审查工具最初只在一个小组试用。两周后，因为效果明显，其他组主动要求接入。不是被推下去的，是被「拉」过去的。</p>
+
+<h2>时区消失了，但距离还在</h2>
+
+<p>我的另一项研究覆盖了 7,439 个团队、超过 75,000 名开发者，发现了一个和直觉不太一样的结果。</p>
+
+<p>AI 确实让跨时区协作更高效了。这一点不意外——当你的队友在睡觉时，AI 可以帮你理解他们留下的代码、写文档、准备 code review。时区差异越大的团队，AI 的正面效果越强。</p>
+
+<p>但我们同时发现，<strong>AI 对空间距离没有任何缓解作用。</strong></p>
+
+<p>什么意思呢？如果你的团队分布在广州和西安，时区一样，但城市不同——AI 帮不了你建立信任，帮不了你解决「我们这边的优先级和他们那边不一样」的问题，也替代不了面对面建立的那种默契。</p>
+
+<h2>写在最后</h2>
+
+<p>我写这篇文章的时候，一直在想那个西安会议上的技术负责人。他说的那句话我到现在还记得：「他们用 AI 的方式和我们预期的不太一样。」</p>
+
+<p>也许这就是 AI 进入团队之后，最值得关注的事情——不是 AI 本身有多强大，而是<strong>人如何使用它、如何互相学习、如何在新的工具面前重新定义协作的方式。</strong></p>
+
+<p>框架和现实之间，隔着无数个周三下午的会议室，隔着一个技术负责人发现「事情和预期不太一样」的时刻。那些时刻，才是真正值得写的。</p>
+`
+  },
+  {
+    id: 'timezone-ai-boundary',
+    title: 'AI 溶解了时区，但没有溶解文化',
+    date: '2025-09-03',
+    excerpt: '基于 7,439 个团队、75,945 名开发者的实证研究发现：AI 让跨时区协作更高效，但对空间距离和团队信任没有任何缓解作用。AI 是异步协作增强器，不是文化粘合剂。',
+    tags: ['AI', '远程协作', '团队', '研究'],
+    body: `<p>即将发布。基于 ICIS 2025 发表的 TimeZone 论文核心发现。</p>`
+  },
+  {
+    id: 'seniority-ai-complementarity',
+    title: 'AI 不是均衡器，是放大器',
+    date: '2025-07-20',
+    excerpt: '一项对 743 名开发者的实证研究颠覆了「AI 让新人追上老人」的假设。数据表明：资深者的 AI 生产力提升远大于初级者——AI 放大已有的能力差距。这对企业人才策略有重大启示。',
+    tags: ['AI', '人才', '研究'],
+    body: `<p>即将发布。基于 ICIS 2025 发表的 Seniority & Spillovers 论文核心发现。</p>`
+  },
+];
+
+function renderPostList() {
+  return POSTS.map(p => `
+    <div class="post-item">
+      <div class="post-date">${p.date}</div>
+      <a class="post-title" href="${SITE_BASE}/post/${p.id}" onclick="navigate(event,'/post/${p.id}')">${p.title}</a>
+      <p class="post-excerpt">${p.excerpt}</p>
+      <div class="post-tags">${p.tags.map(t=>`<span>${t}</span>`).join('')}</div>
+    </div>
+  `).join('');
+}
+
+function renderPost(id) {
+  const p = POSTS.find(p => p.id === id);
+  if (!p) return '<p style="color:var(--text-muted);padding:40px 0;">Post not found.</p>';
+
+  document.title = `${p.title} — Eros Ye`;
+
+  return `
+    <article class="article">
+      <p style="font-size:12px;color:var(--text-muted);margin-bottom:4px;">
+        <a href="${SITE_BASE}/" onclick="navigate(event,'/')" style="color:var(--text-muted);text-decoration:none;">← Writing</a>
       </p>
-      <div class="hero-cta">
-        <a href="/blog.html" class="btn btn-primary">Read My Insights</a>
-        <a href="/about.html" class="btn btn-outline">About Me</a>
-      </div>
-      <div class="hero-stats">
-        <div class="stat">
-          <div class="stat-number">20+</div>
-          <div class="stat-label">Years in FinTech</div>
-        </div>
-        <div class="stat">
-          <div class="stat-number">18,000+</div>
-          <div class="stat-label">Engineers Across 4 Cities</div>
-        </div>
-        <div class="stat">
-          <div class="stat-number">30+</div>
-          <div class="stat-label">Patents Annually</div>
-        </div>
-        <div class="stat">
-          <div class="stat-number">$30M</div>
-          <div class="stat-label">Cost Savings Delivered</div>
-        </div>
-      </div>
-    </div>
-    <div class="scroll-indicator">
-      <span>Scroll</span>
-      <div class="scroll-line"></div>
-    </div>
-  </section>
+      <h1>${p.title}</h1>
+      <div class="meta">${p.date} · ${p.tags.join(' · ')}</div>
+      <div class="body">${p.body}</div>
+    </article>
+  `;
+}
 
-  <!-- 内容支柱 -->
-  <section class="pillars section">
-    <div class="container">
-      <h2 class="section-title">What I Write About <span class="accent">/</span> 内容支柱</h2>
-      <div class="pillars-grid">
-        <div class="pillar-card" data-aos="fade-up">
-          <div class="pillar-icon">💼</div>
-          <h3>实战复盘</h3>
-          <p class="en">Real-World FinTech Operations</p>
-          <p>汇丰科技一线的跨国协作、合规实战、安全运维经验</p>
-          <div class="pillar-tag">35% of content</div>
-        </div>
-        <div class="pillar-card" data-aos="fade-up" data-aos-delay="100">
-          <div class="pillar-icon">🔬</div>
-          <h3>学术洞察</h3>
-          <p class="en">AI × Team Building Research</p>
-          <p>DBA研究框架，AI如何重新定义团队与领导力</p>
-          <div class="pillar-tag">25% of content</div>
-        </div>
-        <div class="pillar-card" data-aos="fade-up" data-aos-delay="200">
-          <div class="pillar-icon">🌏</div>
-          <h3>东西对话</h3>
-          <p class="en">East-West Cultural Bridge</p>
-          <p>硅谷vs深圳，中西管理文化碰撞与融合的深度观察</p>
-          <div class="pillar-tag">25% of content</div>
-        </div>
-        <div class="pillar-card" data-aos="fade-up" data-aos-delay="300">
-          <div class="pillar-icon">🎤</div>
-          <h3>观点立场</h3>
-          <p class="en">Bold Perspectives</p>
-          <p>对金融科技行业热点的独立判断，不随大流</p>
-          <div class="pillar-tag">15% of content</div>
-        </div>
-      </div>
+function renderAbout() {
+  document.title = 'About — Eros Ye';
+  return `
+    <div class="about-section">
+      <h2>Who I Am</h2>
+      <p>I'm Eros Ye (叶明希). I think about how AI changes the way teams work — not just in theory, but in practice.</p>
+      <p>I manage large-scale technology teams at a global financial institution, and I'm pursuing a DBA at City University of Hong Kong. My research uses real enterprise data to understand how AI reshapes collaboration, who benefits most, and why.</p>
+      <p>I've published at top-tier conferences including ICIS. I believe the most interesting things happen at boundaries — between East and West, between theory and practice, between technology and humanity.</p>
+      <p>This site is where I write. No corporate branding, no agenda — just thinking out loud.</p>
     </div>
-  </section>
 
-  <!-- 最新文章 -->
-  <section class="latest-posts section bg-alt">
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-title">Latest Insights <span class="accent">/</span> 最新文章</h2>
-        <a href="/blog.html" class="btn btn-text">View All →</a>
-      </div>
-      <div class="posts-grid" id="latestPosts">
-        <!-- JS 动态加载 -->
-      </div>
+    <div class="about-section">
+      <h2>What I'm Working On</h2>
+      <ul>
+        <li>DBA dissertation: AI and the future of team building — a cross-cultural perspective</li>
+        <li>Research on AI adoption: seniority effects, team spillovers, and time-zone boundaries</li>
+        <li>Writing about the intersection of AI, management, and East-West cultural dynamics</li>
+      </ul>
     </div>
-  </section>
 
-  <!-- 关于我简介 -->
-  <section class="about-brief section">
-    <div class="container">
-      <div class="about-brief-grid">
-        <div class="about-brief-text">
-          <div class="section-label">About / 关于</div>
-          <h2 class="section-title">The Person Behind the Title</h2>
-          <p>I'm the Operations Director of HSBC Technology China, overseeing a technology center with <strong>18,000+ engineers across 4 cities</strong> — the largest in HSBC's global network. Beyond operations, I'm a DBA researcher at City University exploring how AI reshapes team dynamics and leadership.</p>
-          <p>With over <strong>20 years in international banking technology</strong>, I've led cloud-native transformations, pioneered the industry's first financial-grade cloud implementation with Alibaba Cloud, built an Xi'an center from 0 to 2,000 engineers, and cultivated an innovation culture generating <strong>30+ patents annually</strong>.</p>
-          <p>This platform is my way of bridging two worlds — sharing insights from China's FinTech frontline with a global audience, and bringing global perspectives back home.</p>
-          <a href="/about.html" class="btn btn-primary">Full Story</a>
-        </div>
-        <div class="about-brief-visual">
-          <div class="visual-card">
-            <div class="visual-item">
-              <div class="visual-label">Role</div>
-              <div class="visual-value">Operations Director, HSBC Technology China</div>
-            </div>
-            <div class="visual-item">
-              <div class="visual-label">Scale</div>
-              <div class="visual-value">18,000+ Engineers · 4 Cities</div>
-            </div>
-            <div class="visual-item">
-              <div class="visual-label">Research</div>
-              <div class="visual-value">DBA · AI & Team Building · CityU</div>
-            </div>
-            <div class="visual-item">
-              <div class="visual-label">Innovation</div>
-              <div class="visual-value">30+ Patents/Year · $30M Cost Savings</div>
-            </div>
-          </div>
-        </div>
-      </div>
+    <div class="about-section">
+      <h2>Timeline</h2>
+      <div class="timeline-item"><div class="year">2020–Now</div><div class="desc"><strong>Operations Director</strong><br>Overseeing 18,000+ engineers across 4 cities. Leading technology modernization, innovation, and vendor consolidation.</div></div>
+      <div class="timeline-item"><div class="year">2024–Now</div><div class="desc"><strong>DBA Candidate</strong>, City University of Hong Kong<br>Research: AI & team building, cross-cultural organizational behavior.</div></div>
+      <div class="timeline-item"><div class="year">2016–2020</div><div class="desc"><strong>Head of Applied Innovation</strong><br>Built innovation labs, launched Angel Fund (30+ patents/year), delivered first financial-grade cloud on Alibaba Cloud.</div></div>
+      <div class="timeline-item"><div class="year">2009–2016</div><div class="desc"><strong>Center Head, Xi'an</strong><br>Built a development center from 0 to 2,000 engineers. Led global mobile app for 20+ countries.</div></div>
+      <div class="timeline-item"><div class="year">Education</div><div class="desc">EMBA, CUHK Shenzhen · M.Sc. Computer Science, SCUT · B.Sc. Computer Science, Jinan University</div></div>
     </div>
-  </section>
+  `;
+}
 
-  <!-- 订阅区域 -->
-  <section class="newsletter section bg-dark">
-    <div class="container">
-      <div class="newsletter-content">
-        <h2>Stay Connected / 保持连接</h2>
-        <p>每周一篇深度洞察，从中国金融科技前沿到全球视野。不打扰，只启发。</p>
-        <form class="newsletter-form" id="newsletterForm" onsubmit="subscribeNewsletter(event)">
-          <input type="email" placeholder="your@email.com" required>
-          <button type="submit" class="btn btn-primary">Subscribe</button>
-        </form>
-        <div class="newsletter-platforms">
-          <span>Also on:</span>
-          <a href="#" class="platform-link">微信公众号</a>
-          <a href="#" class="platform-link">LinkedIn</a>
-          <a href="#" class="platform-link">Medium</a>
-        </div>
-      </div>
+function renderContact() {
+  document.title = 'Contact — Eros Ye';
+  return `
+    <div class="about-section">
+      <h2>Get in Touch</h2>
+      <p style="font-size:14px;color:var(--text-secondary);">I write about AI, teams, and the East-West intersection. If any of this resonates, feel free to reach out.</p>
     </div>
-  </section>
+    <a class="contact-link" href="https://linkedin.com/in/erosye">LinkedIn <span>— Professional updates and connections</span></a>
+    <a class="contact-link" href="https://github.com/Eros0724">GitHub <span>— Code and projects</span></a>
+    <a class="contact-link" href="mailto:eros.ye@icloud.com">Email <span>— eros.ye@icloud.com</span></a>
+  `;
+}
 
-  <!-- 页脚 -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <div class="footer-logo">Eros Ye<span class="dot">.</span></div>
-          <p>叶明希 — Operations Director, HSBC Technology China · Bridging East & West in FinTech</p>
-        </div>
-        <div class="footer-links">
-          <h4>Navigate</h4>
-          <a href="/">Home</a>
-          <a href="/about.html">About</a>
-          <a href="/blog.html">Blog</a>
-          <a href="/research.html">Research</a>
-          <a href="/speaking.html">Speaking</a>
-        </div>
-        <div class="footer-links">
-          <h4>Connect</h4>
-          <a href="#">LinkedIn</a>
-          <a href="#">微信公众号</a>
-          <a href="#">Medium</a>
-          <a href="#">Twitter/X</a>
-        </div>
-        <div class="footer-links">
-          <h4>Content</h4>
-          <a href="/blog.html?pillar=practice">实战复盘</a>
-          <a href="/blog.html?pillar=academic">学术洞察</a>
-          <a href="/blog.html?pillar=eastwest">东西对话</a>
-          <a href="/blog.html?pillar=opinion">观点立场</a>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p>&copy; 2025 Eros Ye. All rights reserved. Built with purpose.</p>
-      </div>
-    </div>
-  </footer>
+function navigate(e, path) {
+  e.preventDefault();
+  history.pushState(null, '', SITE_BASE + path);
+  route();
+}
 
-  <script src="js/main.js"></script>
-  <script src="js/data.js"></script>
+window.addEventListener('popstate', route);
+route();
+</script>
 </body>
 </html>
